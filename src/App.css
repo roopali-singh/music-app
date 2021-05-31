@@ -1,38 +1,478 @@
-.App {
-  text-align: center;
+/*theme-color: #735bc1 */
+
+.app {
+  overflow-x: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.outer__box {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  min-height: 100vh;
+  max-width: 100vw;
+}
+
+.inner__box::-webkit-scrollbar {
+  display: none;
+}
+
+.inner__box {
+  overflow: auto;
+  height: 480px;
+  max-height: 500px;
+  max-width: 100vw;
+  min-width: 100px;
+  padding: 4vh;
+  /* margin-top: 3vh; */
+  margin-bottom: 3vh;
+  background: linear-gradient(
+    to right bottom,
+    rgb(26, 24, 24),
+    rgb(32, 24, 24),
+    rgb(39, 29, 39)
+  );
+  color: rgb(194, 182, 182);
+  /* // COLORFUL GRADIENT BORDER */
+  border-width: thick;
+  border-style: solid;
+  border-image: linear-gradient(
+    to right bottom,
+    blue,
+    red,
+    green,
+    purple,
+    rgb(178, 218, 35),
+    rgb(235, 129, 146),
+    rgb(236, 156, 6),
+    rgb(43, 166, 214),
+    rgb(43, 166, 214),
+    rgb(236, 156, 6),
+    rgb(235, 129, 146),
+    rgb(178, 218, 35),
+    purple,
+    green,
+    red,
+    blue
+  );
+  border-image-slice: 1;
+}
+
+ul {
+  text-decoration: none;
+  padding: 0;
+}
+
+ul > li {
+  list-style-type: none;
+  text-decoration: none;
+  padding: 2.5% 0 2.5% 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.inner__list-above {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list__options {
+  display: flex;
+  align-items: center;
+}
+
+.list__options > span {
+  width: max-content;
+  max-width: 236px;
+  white-space: pre-wrap;
+  line-height: 1.6;
+}
+
+.forColor {
+  color: #735bc1;
+}
+
+.forWhite {
+  color: white !important;
+}
+
+.outer__heading {
+  margin-bottom: 2%;
+  margin-top: 2vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.outerHeading-icon-margin {
+  margin-left: 15px;
+  z-index: 10;
+}
+
+.inner__heading {
+  margin-bottom: 5%;
+}
+
+.forPlayAll {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* align-items: center; */
+  width: 100%;
+  overflow: hidden;
+  /* padding: 7.5px; */
+}
+
+.forPlayAll > span {
+  overflow: hidden;
+}
+
+.playButton {
+  /* color: #735bc1; */
+  cursor: pointer;
+  margin-left: 10px;
+  margin: 2px;
+}
+
+.playButton:hover {
+  color: rgb(230, 230, 230);
+  transform: scale(1.1) rotate(70deg);
+  transition: transform 0.4s;
+}
+
+.stopButton {
+  background-color: #735bc1;
+  color: #735bc1;
+  border: 1px solid white;
+  cursor: pointer;
+  margin: 8px;
+}
+
+.stopButton:hover {
+  background-color: rgb(230, 230, 230);
+  color: rgb(230, 230, 230);
+  transform: scale(1.1) rotate(70deg);
+  transition: transform 0.4s;
+}
+
+/* //FOOTER (STOP BUTTON) */
+.footer {
+  z-index: 100;
+  max-width: 100vw;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  margin-top: 1em;
+  background: rgba(71, 223, 203, 0.356);
+  mask-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0.95),
+    rgba(0, 0, 0, 0.82),
+    rgba(0, 0, 0, 0.05)
+  );
+
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__forSoundEffect {
+  margin: auto;
+  width: 100%;
+  max-width: 1500px;
+}
+
+.footer__songName {
+  margin: 8px;
+  padding: 8px;
+  background-color: #735bc1b7;
+}
+
+.footer__forlargeScreens {
+  /* overflow-y: hidden; */
+  margin: auto;
+  min-height: max-content;
+  width: 100%;
+  max-width: 1500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.list__forRange {
+  display: none;
+  display: flex;
+  flex-direction: column;
+  margin: 9px 8px 9px 8px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.list__forTiming {
+  margin-top: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* // INPUT OF RANGE TYPE */
+/* WEBKIT BASED BROWSERS (CHROME, SAFARI, OPERA) */
+.range__input {
+  -webkit-appearance: none;
+  border-radius: 3px;
+  cursor: pointer;
+  /* width: 140px; */
+}
+
+.range__input::-webkit-slider-runnable-track {
+  /* width: 140px; */
+  height: 6px;
+  background: #735bc1;
+  border: none;
+  border-radius: 3px;
+}
+
+.range__input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: rgb(224, 12, 12);
+  margin-top: -4px;
+}
+
+.range__input:focus {
+  outline: none;
+}
+
+/* .range__input:focus::-webkit-slider-runnable-track {
+  background: rgb(238, 40, 40);
+} */
+
+/* FIREFOX */
+/* .range__input {
+  fix for FF unable to apply focus style bug 
+  border: 1px solid rgb(149, 148, 230);
+
+  required for proper track sizing in FF
+  width: 130px;
+} */
+
+.range__input::-moz-range-track {
+  /* width: 140px; */
+  height: 6px;
+  background: #735bc1;
+  border: none;
+  border-radius: 3px;
+}
+
+.range__input::-moz-range-thumb {
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: rgb(224, 12, 12);
+}
+
+/*hide the outline behind the border*/
+.range__input:-moz-focusring {
+  outline: 1px solid rgb(149, 148, 230);
+  outline-offset: -1px;
+}
+
+/* .range__input:focus::-moz-range-track {
+  background: rgb(238, 40, 40);
+} */
+
+/* INTERNET EXPLORER 10 + */
+.range__input::-ms-track {
+  /* width: 140px; */
+  height: 6px;
+
+  /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+  background: transparent;
+
+  /*leave room for the larger thumb to overflow with a transparent border */
+  border-color: transparent;
+  border-width: 6px 0;
+
+  /*remove default tick marks*/
+  color: transparent;
+}
+.range__input::-ms-fill-lower {
+  background: #777;
+  border-radius: 10px;
+}
+.range__input::-ms-fill-upper {
+  background: #735bc1;
+  border-radius: 10px;
+}
+.range__input::-ms-thumb {
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: rgb(224, 12, 12);
+}
+.range__input:focus::-ms-fill-lower {
+  background: #888;
+}
+.range__input:focus::-ms-fill-upper {
+  background: rgb(238, 40, 40);
+}
+
+/* .range__input {
+  border-width: 0px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 100%;
+} */
+
+/* // PLAY ALL CIRCLE */
+.circle {
+  cursor: pointer;
+}
+
+.circle:hover {
+  transform: scale(1.2) rotate(70deg);
+  transition: transform 0.3s;
+}
+
+.circle.active {
+  /* color: rgb(194, 182, 182); */
+  color: #1c1818;
+  background-color: #735bc1;
+}
+
+/* // FOR THE HEADER */
+
+/* .header {
+  width: 100vw;
+  height: 35px;
+} */
+
+/* // TOGGLE BUTTON FOR DARK MODE */
+
+.toggle {
+  position: fixed;
+  cursor: pointer;
+  top: 10px;
+  right: 25px;
+  font-size: 150%;
+}
+
+.toggle:before {
+  content: "☀️";
+}
+
+.toggle.active:before {
+  content: "🌒";
+}
+
+.toggle.animation {
+  animation: animation 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes animation {
+  0% {
+    transform: scale(1);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* // FOR THE WAVY ANIMATION WITH TOGGLE BUTTON */
+
+.wave {
+  position: absolute;
+  top: 25px;
+  right: 40px;
+  border-radius: 100%;
+  width: 2px;
+  height: 2px;
+  display: block;
+  z-index: -1;
+  box-shadow: 0 0 0 0 #212121;
+  transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.wave.active {
+  background: #212121;
+  box-shadow: 0 0 0 9999px #212121;
+}
+
+/* // TO CHANGE THE TEXT COLOR */
+
+.outer__heading.active {
+  color: white;
+  transition: color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* // TO CHANGE FOOTER BACKGROUND COLOR */
+
+.footer.active {
+  background: #373246b7;
+  color: white;
+
+  mask-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 1)
+  );
+  transition: color 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 473px */
+@media screen and (max-width: 473px) {
+  .playButton {
+    margin-left: 0;
+    /* font-size: 14px !important; */
+  }
+  /* .stopButton {
+    margin-left: 1.5vh;
+    margin-top: 0;
+    margin-left: 0;
+  } */
+}
+/* 368 */
+@media screen and (max-width: 368px) {
+  .inner__box {
+    padding: 2vh;
+    font-size: 0.9rem;
+  }
+  .app {
+    font-size: 11px;
+  }
+  .footer {
+    font-size: 12px;
+  }
+}
+
+/* width:280   */
+@media screen and (max-width: 280px) {
+  .list__options > span {
+    max-width: 170px;
+    white-space: pre-wrap;
+    /* text-overflow: ellipsis; */
+  }
+}
+
+/* height: 645 */
+@media screen and (max-height: 645px) {
+  .inner__box {
+    height: 460px;
+  }
+  .footer {
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
   }
 }

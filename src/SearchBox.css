@@ -1,0 +1,26 @@
+.search {
+  margin: 3vh;
+}
+
+.header {
+  background: white;
+  color: grey;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  flex: 0.5;
+  padding: 10px;
+  min-width: 70px;
+}
+
+.header__input {
+  border-width: 0px;
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
+.search__icon {
+  color: #735bc1;
+  cursor: pointer;
+}
