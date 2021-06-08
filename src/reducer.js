@@ -2,6 +2,7 @@ import data from "./data";
 
 export const initialState = {
   songData: data?.songs,
+  // originalSongData: data?.songs,
   // matches = [],
   source: null,
   allSource: null,
@@ -14,6 +15,11 @@ export const initialState = {
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case "p":
+      return {
+        ...state,
+        p: action.p,
+      };
     case "CHANGE_SONG_DATA":
       return {
         ...state,

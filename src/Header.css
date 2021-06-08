@@ -1,0 +1,20 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.header__heading {
+  margin-bottom: 2%;
+  margin-top: 2vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__heading-icon-margin {
+  margin-left: 15px;
+  z-index: 10;
+}

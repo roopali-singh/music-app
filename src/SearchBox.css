@@ -1,8 +1,5 @@
 .search {
   margin: 3vh;
-}
-
-.header {
   background: white;
   color: grey;
   border-radius: 30px;
@@ -13,7 +10,7 @@
   min-width: 70px;
 }
 
-.header__input {
+.search__input {
   border-width: 0px;
   border: none;
   outline: none;

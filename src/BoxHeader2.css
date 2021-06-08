@@ -1,0 +1,34 @@
+.boxHeader2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* align-items: center; */
+  width: 100%;
+  /* overflow: hidden; */
+  /* padding: 7.5px; */
+}
+
+.boxHeader2 > span {
+  overflow: hidden;
+}
+
+.boxHeader2__heading {
+  margin-bottom: 5%;
+}
+
+/* // PLAY ALL CIRCLE */
+.boxHeader2__icon {
+  cursor: pointer;
+  color: #735bc1;
+}
+
+.boxHeader2__icon:hover {
+  transform: scale(1.2) rotate(70deg);
+  transition: transform 0.3s;
+}
+
+.boxHeader2__icon.active {
+  /* color: rgb(194, 182, 182); */
+  color: #1c1818;
+  background-color: #735bc1;
+}

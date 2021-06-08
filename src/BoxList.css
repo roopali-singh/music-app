@@ -1,0 +1,55 @@
+.boxList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.boxList__data {
+  display: flex;
+  align-items: center;
+}
+
+.boxList__data > span {
+  width: max-content;
+  max-width: 236px;
+  white-space: pre-wrap;
+  line-height: 1.6;
+}
+
+.forColor {
+  color: #735bc1;
+}
+
+.forWhite {
+  color: white !important;
+}
+
+.boxList__icon {
+  /* color: #735bc1; */
+  cursor: pointer;
+  margin-left: 10px;
+  margin: 2px;
+}
+
+.boxList__icon:hover {
+  color: rgb(230, 230, 230);
+  transform: scale(1.1) rotate(70deg);
+  transition: transform 0.4s;
+}
+
+/* 473px */
+@media screen and (max-width: 473px) {
+  .boxList__icon {
+    margin-left: 0;
+  }
+}
+
+/* width:280   */
+@media screen and (max-width: 280px) {
+  .boxList__data > span {
+    max-width: 170px;
+    white-space: pre-wrap;
+    /* text-overflow: ellipsis; */
+  }
+}

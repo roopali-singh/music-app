@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import SearchIcon from "@material-ui/icons/Search";
 import "./SearchBox.css";
-import data from "./data";
 import { useStateValue } from "./StateProvider";
 import Fuse from "fuse.js";
+import data from "./data";
+
+// import { toToggle } from "./headerFunctions";
+import SearchIcon from "@material-ui/icons/Search";
 
 function SearchBox() {
   const [{ songData }, dispatch] = useStateValue();
@@ -24,6 +26,7 @@ function SearchBox() {
       dispatch({
         type: "CHANGE_SONG_DATA",
         songData: data?.songs,
+        // songData: originalSongData,
       });
       return;
     } else {
@@ -34,7 +37,11 @@ function SearchBox() {
           type: "CHANGE_SONG_DATA",
           songData: [],
         });
-      } else {
+      }
+      // else if ((input = "black theme")) {
+      //   toToggle();
+      // }
+      else {
         result.forEach(({ item }) => {
           matches.push(item);
         });
@@ -48,22 +55,20 @@ function SearchBox() {
 
   return (
     <div className="search">
-      <div className="header">
-        <SearchIcon
-          className="search__icon"
-          onClick={() => searchInput(searchBarInput)}
-        />
-        <input
-          className="header__input"
-          placeHolder="Search for Songs or Artists"
-          type="search"
-          value={searchBarInput}
-          onChange={(e) => {
-            searchInput(e.target.value);
-            setSearchBarInput(e.target.value);
-          }}
-        />
-      </div>
+      <SearchIcon
+        className="search__icon"
+        onClick={() => searchInput(searchBarInput)}
+      />
+      <input
+        className="search__input"
+        placeHolder="Search for Songs or Artists"
+        type="search"
+        value={searchBarInput}
+        onChange={(e) => {
+          searchInput(e.target.value);
+          setSearchBarInput(e.target.value);
+        }}
+      />
     </div>
   );
 }
