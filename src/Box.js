@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Box.css";
 import { useStateValue } from "./StateProvider";
+import { changeBackgroundColor } from "./headerFunctions";
 
 import BoxHeader1 from "./BoxHeader1";
 import BoxHeader2 from "./BoxHeader2";
@@ -8,13 +9,13 @@ import BoxList from "./BoxList";
 import BoxRange from "./BoxRange";
 
 function Box({ audioPlayer, allAudioPlayer }) {
-  const [{ songData }, dispatch] = useStateValue();
+  const [{ songData }] = useStateValue();
   const [duration, setDuration] = useState("00:00");
   const [currentTiming, setCurrentTiming] = useState("00:00");
   const [white, setWhite] = useState();
 
   return (
-    <div className="box">
+    <div className="box" onScroll={changeBackgroundColor}>
       <BoxHeader1 />
       <main className="box__innerBox">
         <BoxHeader2

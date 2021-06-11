@@ -72,3 +72,10 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+/* 368 */
+@media screen and (max-width: 368px) {
+  .dropdown-content {
+    font-size: 15px;
+  }
+}

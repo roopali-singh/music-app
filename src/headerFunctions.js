@@ -40,3 +40,10 @@ export function hms(second) {
     minutes + ":" + seconds
   );
 }
+
+// TO CHANGE THE BACKGROUND COLOR O SCROLL /////////////////////////////////////////////////
+
+export function changeBackgroundColor() {
+  const body = document.querySelector("body");
+  body.classList.add("background");
+}

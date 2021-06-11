@@ -2,7 +2,7 @@ import data from "./data";
 
 export const initialState = {
   songData: data?.songs,
-  // originalSongData: data?.songs,
+  originalSongData: data?.songs,
   // matches = [],
   source: null,
   allSource: null,
@@ -11,6 +11,8 @@ export const initialState = {
   // for throttling
   // rangeInput: 1,
   name: "",
+  // for adding favourites
+  favourite: [],
 };
 
 const reducer = (state, action) => {
@@ -60,6 +62,23 @@ const reducer = (state, action) => {
       return {
         ...state,
         rangeInput: action.rangeInput,
+      };
+
+    case "ADD_TO_FAVOURITE":
+      // to check if the song is not already present in favourites
+
+      const song = state.favourite.find(
+        (songId) => songId._id === action.item._id
+      );
+      let newSong = [...state.favourite];
+
+      if (!song) {
+        newSong = [...state.favourite, action.item];
+      }
+
+      return {
+        ...state,
+        favourite: newSong,
       };
 
     default:

@@ -1,16 +1,40 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./BoxHeader1.css";
 import { useStateValue } from "./StateProvider";
 // import data from "./data";
 
 import SubjectIcon from "@material-ui/icons/Subject";
-import QueueIcon from "@material-ui/icons/Queue";
+import LibraryMusicIcon from "@material-ui/icons/LibraryMusic";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
 function BoxHeader1() {
-  const [{ songData }, dispatch] = useStateValue();
+  const [{ songData, originalSongData, favourite }, dispatch] = useStateValue();
+  const [toggleState, setToggleState] = useState(false);
   // const originalSongData = data?.songs.slice();
 
   var songsSorted;
+
+  // TO TOGGLE BETWEEN FAVOURITES AND ALL SONGS //////////////////////////////////////////////
+
+  useEffect(() => {
+    // function showFavourites() {
+    if (toggleState) {
+      dispatch({
+        type: "CHANGE_SONG_DATA",
+        songData: favourite,
+      });
+    } else {
+      dispatch({
+        type: "CHANGE_SONG_DATA",
+        songData: originalSongData,
+      });
+    }
+    // }
+  }, [toggleState]);
+
+  function favouriteToggle() {
+    setToggleState((toggleState) => !toggleState);
+  }
 
   // FOR SONGS NAME AND SONGS SINGER SORTING ///////////////////////////////////////////////////////////////
 
@@ -25,7 +49,7 @@ function BoxHeader1() {
 
   function nameSorting() {
     songsSorted = songData?.sort((a, b) => (a.name > b.name ? 1 : -1));
-    console.log("clicked song name 🎵 ");
+    // console.log("clicked song name 🎵 ");
     dispatch({
       type: "CHANGE_SONG_DATA",
       songData: songsSorted,
@@ -34,19 +58,35 @@ function BoxHeader1() {
 
   function singerSorting() {
     songsSorted = songData?.sort((a, b) => (a.singer > b.singer ? 1 : -1));
-    console.log("clicked singers 🧑‍🎤 ");
+    // console.log("clicked singers 🧑‍🎤 ");
     dispatch({
       type: "CHANGE_SONG_DATA",
       songData: songsSorted,
     });
   }
 
+  // TO SHOW THE FAVOURITES ///////////////////////////////////////////////////////////////
+
+  function showFavourites() {
+    if (toggleState) {
+      dispatch({
+        type: "CHANGE_SONG_DATA",
+        songData: favourite,
+      });
+    } else {
+      dispatch({
+        type: "CHANGE_SONG_DATA",
+        songData: originalSongData,
+      });
+    }
+  }
+
   return (
     <div className="boxHeader1">
-      <div className="dropdown">
+      <main className="dropdown">
         <SubjectIcon className="boxHeader1__icon" />
-        <div className="dropdown-content boxHeader1__icon">
-          <div className="dropdown__non-select">Sort By</div>
+        <section className="dropdown-content boxHeader1__icon">
+          <header className="dropdown__non-select">Sort By</header>
           {/* <div
                 className="dropdown__select forDropdown__border-radius"
                 onClick={defaultSorting}
@@ -62,9 +102,25 @@ function BoxHeader1() {
           <div className="dropdown__select" onClick={nameSorting}>
             Songs
           </div>
-        </div>
-      </div>
-      <QueueIcon className="boxHeader1__icon" />
+        </section>
+      </main>
+      {!toggleState ? (
+        <LibraryMusicIcon
+          className="boxHeader1__icon"
+          onClick={() => {
+            favouriteToggle();
+            showFavourites();
+          }}
+        />
+      ) : (
+        <ArrowBackIcon
+          className="boxHeader1__icon"
+          onClick={() => {
+            favouriteToggle();
+            showFavourites();
+          }}
+        />
+      )}
     </div>
   );
 }

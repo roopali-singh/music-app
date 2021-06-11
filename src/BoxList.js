@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./BoxList.css";
 import { useStateValue } from "./StateProvider";
 
@@ -13,7 +13,21 @@ function BoxList({
   white,
   setWhite,
 }) {
-  const [{}, dispatch] = useStateValue();
+  const [{ favourite }, dispatch] = useStateValue();
+  // const [favouriteCheckToggle, setFavouriteCheckToggle] = useState();
+  const favouriteCheck = favourite.find((songId) => songId._id === song._id);
+
+  // ADD TO FAVOURITES //////////////////////////////////////////////////////////////////////
+  function addToFavourite() {
+    dispatch({
+      type: "ADD_TO_FAVOURITE",
+      item: {
+        _id: song?._id,
+        name: song?.name,
+        singer: song?.singer,
+      },
+    });
+  }
 
   //TO PLAY THE DESIRED SONG ///////////////////////////////////////////////////////////////
 
@@ -49,8 +63,21 @@ function BoxList({
   return (
     <div className="boxList">
       <section className="boxList__data">
-        <MusicNoteIcon fontSize="small" className="forColor" />
-        <span>
+        <button
+          title="add-to-favourite"
+          className="boxList__data-button"
+          onClick={() => addToFavourite()}
+        >
+          <MusicNoteIcon
+            fontSize="small"
+            className={`boxList__favourite-icon ${
+              favouriteCheck?._id === song?._id
+                ? "forFavouriteColor"
+                : "forColor"
+            }`}
+          />
+        </button>
+        <span className="boxList__data-info">
           {song?.name} by {song?.singer}
         </span>
       </section>
@@ -59,7 +86,7 @@ function BoxList({
         style={{
           fontSize: 35,
         }}
-        className={`boxList__icon ${
+        className={`boxList__play-icon ${
           white === song?._id ? "forWhite" : "forColor"
         }`}
         onClick={() => {

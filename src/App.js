@@ -14,11 +14,9 @@ function App() {
     <div className="app">
       <span className="toggle" onClick={toToggle}></span>
       <span class="wave"></span>
-      <main className="outer__box">
-        <Header />
-        <Box audioPlayer={audioPlayer} allAudioPlayer={allAudioPlayer} />
-        <Footer audioPlayer={audioPlayer} allAudioPlayer={allAudioPlayer} />
-      </main>
+      <Header />
+      <Box audioPlayer={audioPlayer} allAudioPlayer={allAudioPlayer} />
+      <Footer audioPlayer={audioPlayer} allAudioPlayer={allAudioPlayer} />
     </div>
   );
 }
