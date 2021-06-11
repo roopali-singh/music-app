@@ -64,16 +64,26 @@ const reducer = (state, action) => {
         rangeInput: action.rangeInput,
       };
 
-    case "ADD_TO_FAVOURITE":
+    case "FAVOURITE_LIST":
       // to check if the song is not already present in favourites
 
       const song = state.favourite.find(
         (songId) => songId._id === action.item._id
       );
+
       let newSong = [...state.favourite];
 
       if (!song) {
+        // song not present => add that song
         newSong = [...state.favourite, action.item];
+      } else if (song) {
+        // song present => remove that song
+        newSong = state.favourite.filter(
+          (songPresent) => songPresent._id !== song._id
+        );
+      } else {
+        // in case of error :\
+        document.location.reload();
       }
 
       return {

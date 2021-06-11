@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./BoxList.css";
 import { useStateValue } from "./StateProvider";
 
@@ -14,13 +14,12 @@ function BoxList({
   setWhite,
 }) {
   const [{ favourite }, dispatch] = useStateValue();
-  // const [favouriteCheckToggle, setFavouriteCheckToggle] = useState();
   const favouriteCheck = favourite.find((songId) => songId._id === song._id);
 
   // ADD TO FAVOURITES //////////////////////////////////////////////////////////////////////
-  function addToFavourite() {
+  function favouriteList() {
     dispatch({
-      type: "ADD_TO_FAVOURITE",
+      type: "FAVOURITE_LIST",
       item: {
         _id: song?._id,
         name: song?.name,
@@ -66,14 +65,14 @@ function BoxList({
         <button
           title="add-to-favourite"
           className="boxList__data-button"
-          onClick={() => addToFavourite()}
+          onClick={() => favouriteList()}
         >
           <MusicNoteIcon
             fontSize="small"
             className={`boxList__favourite-icon ${
               favouriteCheck?._id === song?._id
                 ? "forFavouriteColor"
-                : "forColor"
+                : "forNotFavouriteColor"
             }`}
           />
         </button>

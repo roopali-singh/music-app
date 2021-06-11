@@ -26,15 +26,30 @@
   justify-content: center;
 }
 
+/* // FOR FAVOURITE ICON */
+
 .boxList__favourite-icon {
   cursor: pointer;
 }
 
-.boxList__favourite-icon:hover {
-  color: rgb(221, 25, 25);
+.forNotFavouriteColor {
+  color: #735bc1;
 }
+
+.forNotFavouriteColor:hover {
+  color: rgb(221, 25, 25);
+  transform: scale(1.3);
+  transition: transform 0.2s ease-out;
+}
+
 .forFavouriteColor {
   color: rgb(221, 25, 25);
+}
+
+.forFavouriteColor:hover {
+  color: #735bc1;
+  transform: scale(1.3);
+  transition: transform 0.2s ease-out;
 }
 
 .forColor {
@@ -44,6 +59,8 @@
 .forWhite {
   color: white !important;
 }
+
+/* // FOR PLAY ICON */
 
 .boxList__play-icon {
   /* color: #735bc1; */
@@ -80,5 +97,36 @@
     max-width: 150px;
     white-space: pre-wrap;
     /* text-overflow: ellipsis; */
+  }
+}
+
+/* // REMOVING HOVER FROM MOBILE */
+
+@media (hover: hover) {
+  /* Styling which you want with hover. */
+
+  .forNotFavouriteColor:hover {
+    color: rgb(221, 25, 25);
+    transform: scale(1.3);
+    transition: transform 0.2s ease-out;
+  }
+
+  .forFavouriteColor:hover {
+    color: #735bc1;
+    transform: scale(1.3);
+    transition: transform 0.2s ease-out;
+  }
+}
+@media (hover: none) {
+  /* Styling which you want without hover. */
+
+  .forNotFavouriteColor:hover {
+    color: #735bc1;
+    transform: scale(1);
+  }
+
+  .forFavouriteColor:hover {
+    color: rgb(221, 25, 25);
+    transform: scale(1);
   }
 }

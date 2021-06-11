@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import "./Box.css";
 import { useStateValue } from "./StateProvider";
-import { changeBackgroundColor } from "./headerFunctions";
+// import {
+//   addScrollBackgroundColor,
+//   removeScrollBackgroundColor,
+// } from "./headerFunctions";
 
 import BoxHeader1 from "./BoxHeader1";
 import BoxHeader2 from "./BoxHeader2";
@@ -14,8 +17,13 @@ function Box({ audioPlayer, allAudioPlayer }) {
   const [currentTiming, setCurrentTiming] = useState("00:00");
   const [white, setWhite] = useState();
 
+  // const box = document.querySelectorAll(".box").forEach((item) => {
+  //   item.addEventListener("scroll", addScrollBackgroundColor);
+  //   item.removeEventListener("scroll", removeScrollBackgroundColor);
+  // });
+
   return (
-    <div className="box" onScroll={changeBackgroundColor}>
+    <div className="box">
       <BoxHeader1 />
       <main className="box__innerBox">
         <BoxHeader2

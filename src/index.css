@@ -7,6 +7,7 @@
 }
 
 body {
+  /* background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%); */
   background: linear-gradient(
     to right,
     #43848d,
@@ -30,8 +31,8 @@ code {
     monospace;
 }
 
-.background {
-  /* For browsers that do not support gradients */
+/* .background {
+  For browsers that do not support gradients
   background: -webkit-linear-gradient(
     left,
     #438d64,
@@ -42,7 +43,7 @@ code {
     rgb(216, 162, 207),
     rgb(182, 73, 73)
   );
-  /* For Safari 5.1 to 6.0 */
+  For Safari 5.1 to 6.0
   background: -o-linear-gradient(
     right,
     #438d64,
@@ -53,7 +54,7 @@ code {
     rgb(211, 165, 203),
     rgb(190, 133, 133)
   );
-  /* For Opera 11.1 to 12.0 */
+  For Opera 11.1 to 12.0
   background: -moz-linear-gradient(
     right,
     #438d64,
@@ -64,7 +65,7 @@ code {
     rgb(211, 165, 203),
     rgb(190, 133, 133)
   );
-  /* For Firefox 3.6 to 15 */
+  For Firefox 3.6 to 15
   background: linear-gradient(
     to right,
     #438d64,
@@ -75,5 +76,5 @@ code {
     rgb(211, 165, 203),
     rgb(190, 133, 133)
   );
-  /* Standard syntax (must be last) */
-}
+  Standard syntax (must be last)
+} */

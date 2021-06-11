@@ -43,7 +43,12 @@ export function hms(second) {
 
 // TO CHANGE THE BACKGROUND COLOR O SCROLL /////////////////////////////////////////////////
 
-export function changeBackgroundColor() {
-  const body = document.querySelector("body");
-  body.classList.add("background");
-}
+// export function addScrollBackgroundColor() {
+//   const body = document.querySelector("body");
+//   body.classList.add("background");
+// }
+
+// export function removeScrollBackgroundColor() {
+//   const body = document.querySelector("body");
+//   body.classList.remove("background");
+// }
