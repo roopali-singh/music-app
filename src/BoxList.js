@@ -16,7 +16,7 @@ function BoxList({
   const [{ favourite }, dispatch] = useStateValue();
   const favouriteCheck = favourite.find((songId) => songId._id === song._id);
 
-  // ADD TO FAVOURITES //////////////////////////////////////////////////////////////////////
+  // ADD AND REMOVE FROM FAVOURITES //////////////////////////////////////////////////////////////////////
   function favouriteList() {
     dispatch({
       type: "FAVOURITE_LIST",
@@ -24,6 +24,7 @@ function BoxList({
         _id: song?._id,
         name: song?.name,
         singer: song?.singer,
+        path: song?.path,
       },
     });
   }
