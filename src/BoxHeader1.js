@@ -17,7 +17,8 @@ function BoxHeader1() {
   // TO TOGGLE BETWEEN FAVOURITES AND ALL SONGS //////////////////////////////////////////////
 
   useEffect(() => {
-    // function showFavourites() {
+    // TO SHOW THE FAVOURITES ///////////////////////////////////////////////////////////////
+
     if (toggleState) {
       dispatch({
         type: "CHANGE_SONG_DATA",
@@ -29,7 +30,6 @@ function BoxHeader1() {
         songData: originalSongData,
       });
     }
-    // }
   }, [toggleState]);
 
   function favouriteToggle() {
@@ -65,22 +65,6 @@ function BoxHeader1() {
     });
   }
 
-  // TO SHOW THE FAVOURITES ///////////////////////////////////////////////////////////////
-
-  function showFavourites() {
-    if (toggleState) {
-      dispatch({
-        type: "CHANGE_SONG_DATA",
-        songData: favourite,
-      });
-    } else {
-      dispatch({
-        type: "CHANGE_SONG_DATA",
-        songData: originalSongData,
-      });
-    }
-  }
-
   return (
     <div className="boxHeader1">
       <main className="dropdown">
@@ -107,17 +91,14 @@ function BoxHeader1() {
       {!toggleState ? (
         <LibraryMusicIcon
           className="boxHeader1__icon"
-          onClick={() => {
-            favouriteToggle();
-            showFavourites();
-          }}
+          onClick={favouriteToggle}
         />
       ) : (
         <ArrowBackIcon
           className="boxHeader1__icon"
           onClick={() => {
             favouriteToggle();
-            showFavourites();
+            // showFavourites();
           }}
         />
       )}
