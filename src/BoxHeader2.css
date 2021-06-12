@@ -28,7 +28,24 @@
 }
 
 .boxHeader2__icon.active {
-  /* color: rgb(194, 182, 182); */
   color: #1c1818;
   background-color: #735bc1;
+}
+
+/* // REMOVING HOVER FROM MOBILE */
+
+@media (hover: hover) {
+  /* Styling which you want with hover. */
+
+  .boxHeader2__icon:hover {
+    transform: scale(1.2) rotate(70deg);
+  }
+}
+
+@media (hover: none) {
+  /* Styling which you want without hover. */
+
+  .boxHeader2__icon:hover {
+    transform: scale(1) rotate(0deg);
+  }
 }

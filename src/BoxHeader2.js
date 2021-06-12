@@ -78,7 +78,10 @@ function BoxHeader2({ allAudioPlayer, setDuration, setCurrentTiming }) {
 
   return (
     <div className="boxHeader2">
-      <span title="Play All Songs">
+      <span
+        title="Play All Songs"
+        // className="boxHeader2__icon"
+      >
         <PlayCircleFilledIcon
           fontSize="large"
           className="boxHeader2__icon"
