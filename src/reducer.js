@@ -12,7 +12,8 @@ export const initialState = {
   // rangeInput: 1,
   name: "",
   // for adding favourites
-  favourite: [],
+  favourite:
+    JSON.parse(window.localStorage.getItem("favouriteInLocalStorage")) || [],
 };
 
 const reducer = (state, action) => {

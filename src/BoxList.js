@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./BoxList.css";
 import { useStateValue } from "./StateProvider";
 
@@ -15,6 +15,13 @@ function BoxList({
 }) {
   const [{ favourite }, dispatch] = useStateValue();
   const favouriteCheck = favourite.find((songId) => songId._id === song._id);
+
+  useEffect(() => {
+    window.localStorage.setItem(
+      "favouriteInLocalStorage",
+      JSON.stringify(favourite)
+    );
+  }, [favourite]);
 
   // ADD AND REMOVE FROM FAVOURITES //////////////////////////////////////////////////////////////////////
   function favouriteList() {
