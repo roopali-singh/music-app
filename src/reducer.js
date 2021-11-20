@@ -4,16 +4,18 @@ export const initialState = {
   songData: data?.songs,
   originalSongData: data?.songs,
   // matches = [],
-  source: null,
+  source: "",
   allSource: null,
   i: 0,
   f: 0,
+  sourceId: null,
   // for throttling
   // rangeInput: 1,
   name: "",
   // for adding favourites
   favourite:
-    JSON.parse(window.localStorage.getItem("favouriteInLocalStorage")) || [],
+    JSON.parse(window.localStorage.getItem("favouriteInLocalStorage")) ||
+     [],
 };
 
 const reducer = (state, action) => {

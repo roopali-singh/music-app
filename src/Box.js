@@ -17,12 +17,6 @@ function Box({ audioPlayer, allAudioPlayer }) {
   const [currentTiming, setCurrentTiming] = useState("00:00");
   const [white, setWhite] = useState();
 
-
-  // const box = document.querySelectorAll(".box").forEach((item) => {
-  //   item.addEventListener("scroll", addScrollBackgroundColor);
-  //   item.removeEventListener("scroll", removeScrollBackgroundColor);
-  // });
-
   return (
     <div className="box">
       <BoxHeader1 />

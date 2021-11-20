@@ -11,7 +11,7 @@ function Header() {
           Music App{" "}
           <HeadsetMicIcon
             style={{ fontSize: 40 }}
-            className="header__heading-icon-margin"
+            className="header__heading-icon"
           />
         </h1>
       </div>
