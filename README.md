@@ -1,6 +1,15 @@
-# Music App
+# Live Demo: [Music App](https://la-la-la.netlify.app/)
 
-https://la-la-la.netlify.app/
+A music app built using the Audio API in React.
+
+- Plays music for you in loop
+- Plays the whole playlist in loop
+- Add songs to favorites
+- Perform search operation
+- Perform sort operation
+- Available in Dark Mode
+
+> Hosted on Netlify
 
 # Getting Started with Create React App
 
