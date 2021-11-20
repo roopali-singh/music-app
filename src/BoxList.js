@@ -71,7 +71,7 @@ function BoxList({
     <div className="boxList">
       <section className="boxList__data">
         <button
-          title="add-to-favourite"
+          // title="add-to-favourite"
           className="boxList__data-button"
           onClick={() => favouriteList()}
         >

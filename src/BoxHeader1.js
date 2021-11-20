@@ -6,6 +6,7 @@ import { useStateValue } from "./StateProvider";
 import SubjectIcon from "@material-ui/icons/Subject";
 import LibraryMusicIcon from "@material-ui/icons/LibraryMusic";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import Tooltip from "@material-ui/core/Tooltip";
 
 function BoxHeader1() {
   const [{ songData, originalSongData, favourite }, dispatch] = useStateValue();
@@ -89,10 +90,12 @@ function BoxHeader1() {
         </section>
       </main>
       {!toggleState ? (
-        <LibraryMusicIcon
-          className="boxHeader1__icon"
-          onClick={favouriteToggle}
-        />
+        <Tooltip title="Favorites" placement="top">
+          <LibraryMusicIcon
+            className="boxHeader1__icon"
+            onClick={favouriteToggle}
+          />
+        </Tooltip>
       ) : (
         <ArrowBackIcon
           className="boxHeader1__icon"

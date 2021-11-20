@@ -3,6 +3,7 @@ import "./BoxHeader2.css";
 import { useStateValue } from "./StateProvider";
 
 import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
+import Tooltip from "@material-ui/core/Tooltip";
 
 function BoxHeader2({ allAudioPlayer, setDuration, setCurrentTiming }) {
   const [{ songData, allSource, i, f }, dispatch] = useStateValue();
@@ -78,16 +79,18 @@ function BoxHeader2({ allAudioPlayer, setDuration, setCurrentTiming }) {
 
   return (
     <div className="boxHeader2">
-      <span
+      {/* <span
         title="Play All Songs"
-        // className="boxHeader2__icon"
-      >
+        className="boxHeader2__icon"
+      > */}
+      <Tooltip title="Play All" placement="top">
         <PlayCircleFilledIcon
           fontSize="large"
           className="boxHeader2__icon"
           onClick={playAllSongs}
         />
-      </span>
+      </Tooltip>
+      {/* </span> */}
       <h3 className="boxHeader2__heading">The Playlist</h3>
     </div>
   );
