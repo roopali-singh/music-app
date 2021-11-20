@@ -7,11 +7,29 @@ import SubjectIcon from "@material-ui/icons/Subject";
 import LibraryMusicIcon from "@material-ui/icons/LibraryMusic";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import Tooltip from "@material-ui/core/Tooltip";
+import { makeStyles } from "@material-ui/core/styles";
 
 function BoxHeader1() {
   const [{ songData, originalSongData, favourite }, dispatch] = useStateValue();
   const [toggleState, setToggleState] = useState(false);
   // const originalSongData = data?.songs.slice();
+
+  // TOOLTIP ////////////////////////////////////////
+
+  const useStyles = makeStyles((theme) => ({
+    tooltip: {
+      backgroundColor: "#735bc1",
+      fontSize: 11.5,
+    },
+  }));
+
+  function StyledTooltip(props) {
+    const classes = useStyles();
+
+    return <Tooltip classes={classes} {...props} />;
+  }
+
+  //////////////////////////////////////////////////
 
   var songsSorted;
 
@@ -90,12 +108,12 @@ function BoxHeader1() {
         </section>
       </main>
       {!toggleState ? (
-        <Tooltip title="Favorites" placement="top">
+        <StyledTooltip title="Favorites" placement="top">
           <LibraryMusicIcon
             className="boxHeader1__icon"
             onClick={favouriteToggle}
           />
-        </Tooltip>
+        </StyledTooltip>
       ) : (
         <ArrowBackIcon
           className="boxHeader1__icon"

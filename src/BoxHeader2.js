@@ -4,11 +4,29 @@ import { useStateValue } from "./StateProvider";
 
 import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
 import Tooltip from "@material-ui/core/Tooltip";
+import { makeStyles } from "@material-ui/core/styles";
 
 function BoxHeader2({ allAudioPlayer, setDuration, setCurrentTiming }) {
   const [{ songData, allSource, i, f }, dispatch] = useStateValue();
 
   const n = songData?.length;
+
+  // TOOLTIP ////////////////////////////////////////
+
+  const useStyles = makeStyles((theme) => ({
+    tooltip: {
+      backgroundColor: "#735bc1",
+      fontSize: 11.5,
+    },
+  }));
+
+  function StyledTooltip(props) {
+    const classes = useStyles();
+
+    return <Tooltip classes={classes} {...props} />;
+  }
+
+  //////////////////////////////////////////////////
 
   // TO PLAY ALL SONGS /////////////////////////////////////////////////////////////////
 
@@ -83,13 +101,13 @@ function BoxHeader2({ allAudioPlayer, setDuration, setCurrentTiming }) {
         title="Play All Songs"
         className="boxHeader2__icon"
       > */}
-      <Tooltip title="Play All" placement="top">
+      <StyledTooltip title="Play All" placement="top">
         <PlayCircleFilledIcon
           fontSize="large"
           className="boxHeader2__icon"
           onClick={playAllSongs}
         />
-      </Tooltip>
+      </StyledTooltip>
       {/* </span> */}
       <h3 className="boxHeader2__heading">The Playlist</h3>
     </div>
